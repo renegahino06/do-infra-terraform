@@ -1,9 +1,19 @@
-// main.tf
-// Aquí va la definición principal de recursos de Terraform.
-// Ejemplo de provider para AWS:
-
-provider "aws" {
-  region = var.aws_region
+terraform {
+  required_providers {
+    digitalocean = {
+      source  = "digitalocean/digitalocean"
+      version = "~> 2.0"
+    }
+  }
 }
 
-// Añade tus recursos aquí.
+provider "digitalocean" {
+  token = var.do_token
+}
+
+resource "digitalocean_project" "main" {
+  name        = var.do_project_name
+  description = var.do_project_description
+  purpose     = "Web Application"
+  environment = "Development"
+}
