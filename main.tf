@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "digitalocean" {
-  token = var.do_token != "" ? var.do_token : getenv("DO_TOKEN")
+  token = var.do_token
 }
 
 resource "digitalocean_project" "main" {
