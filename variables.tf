@@ -2,8 +2,9 @@
 // Define las variables que usará tu infraestructura.
 
 variable "do_token" {
-  description = "Token de acceso de DigitalOcean. Usa una variable de entorno o Terraform Cloud para mayor seguridad."
+  description = "Token de acceso de DigitalOcean. Se puede pasar con TF_VAR_do_token o con la variable de entorno DO_TOKEN."
   type        = string
+  default     = ""
   sensitive   = true
 }
 
